@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Drones {
+  id                String     @id
+  customer_name     String
+  customer_image    String
+  customer_address  String
+  battery           Int
+  max_speed         Float
+  average_speed     Float
+  status            String
+  current_fly       Int
+
+  @@map("drones")
+}

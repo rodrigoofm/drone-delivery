@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres
+    container_name: drone_delivery
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=drone
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=drone_delivery
+    volumes:
+      - pgdata:/data/postgres
+
+  app:
+    build: .
+    container_name: drone_delivery_app
+    ports:
+      - 3003:3003
+    volumes:
+      - .:/usr/app
+    links:
+      - database
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
+    driver: local

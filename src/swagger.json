@@ -1,0 +1,259 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Rentx Documentation",
+    "description": "This is an API Rent",
+    "version": "1.0.0",
+    "contact": {
+      "email": "rodrigo@rentx.com.br"
+    }
+  },
+  "paths": {
+    "/drones/{id}": {
+      "post": {
+        "tags": ["Drone"],
+        "summary": "Create a drone",
+        "description": "Create a new drone",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "Drone id",
+          "required": true
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customer_name": {
+                    "type": "string"
+                  },
+                  "customer_image": {
+                    "type": "string"
+                  },
+                  "customer_address": {
+                    "type": "string"
+                  },
+                  "battery": {
+                    "type": "number"
+                  },
+                  "max_speed": {
+                    "type": "number"
+                  },
+                  "average_speed": {
+                    "type": "Number"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "current_fly": {
+                    "type": "number"
+                  }
+                },
+                "example": {
+                  "customer_name": "Customer name",
+                  "customer_image": "Customer image url",
+                  "battery": "Battery number",
+                  "max_speed": "Max speed number",
+                  "average_speed": "Average speed number",
+                  "status": "Status example",
+                  "current_fly": "Current fly example"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Drone already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Drone"],
+        "summary": "List drone",
+        "description": "List drone",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "Drone id",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "customer_name": {
+                        "type": "string"
+                      },
+                      "customer_image": {
+                        "type": "string"
+                      },
+                      "customer_address": {
+                        "type": "string"
+                      },
+                      "battery": {
+                        "type": "number"
+                      },
+                      "max_speed": {
+                        "type": "number"
+                      },
+                      "average_speed": {
+                        "type": "Number"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "current_fly": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Drone not found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Drone"],
+        "summary": "Update a drone",
+        "description": "Update a drone",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "Drone id",
+          "required": true
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customer_name": {
+                    "type": "string"
+                  },
+                  "customer_image": {
+                    "type": "string"
+                  },
+                  "customer_address": {
+                    "type": "string"
+                  },
+                  "battery": {
+                    "type": "number"
+                  },
+                  "max_speed": {
+                    "type": "number"
+                  },
+                  "average_speed": {
+                    "type": "Number"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "current_fly": {
+                    "type": "number"
+                  }
+                },
+                "example": {
+                  "customer_name": "Customer name",
+                  "customer_image": "Customer image url",
+                  "battery": "Battery number",
+                  "max_speed": "Max speed number",
+                  "average_speed": "Average speed number",
+                  "status": "Status example",
+                  "current_fly": "Current fly example"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          },
+          "500": {
+            "description": "Drone not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Drone"],
+        "summary": "Delete a drone",
+        "description": "Delete a drone",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "Drone id",
+          "required": true
+        }],
+        "responses": {
+          "204": "No Content",
+          "500": "Drone not found"
+        }
+      }
+    },
+    "/drones": {
+      "get": {
+        "tags": ["Drone"],
+        "summary": "List all drones",
+        "description": "List all drones",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "customer_name": {
+                        "type": "string"
+                      },
+                      "customer_image": {
+                        "type": "string"
+                      },
+                      "customer_address": {
+                        "type": "string"
+                      },
+                      "battery": {
+                        "type": "number"
+                      },
+                      "max_speed": {
+                        "type": "number"
+                      },
+                      "average_speed": {
+                        "type": "Number"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "current_fly": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
